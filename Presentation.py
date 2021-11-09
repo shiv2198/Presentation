@@ -12,7 +12,7 @@ import plotly.express as px
 
 st.title("User Account Balance Prediction")
 
-# @st.cache
+@st.cache
 def load_data():
     data = pd.read_csv('CGI_dataset.csv')
     data = data[(data.transaction_date > "2020-01-01")]
@@ -33,7 +33,7 @@ def show_data(data):
                             ))
     st.write(fig)
 
-# @st.cache
+@st.cache
 def plot_balance_data(data):
     st.subheader("How the data looks like?")
     fig = go.Figure()
@@ -50,7 +50,7 @@ def plot_moving_average(data):
     fig.layout.update(margin = dict(l = 5, r = 5, b = 1, t = 1),xaxis_rangeslider_visible = True)
     st.plotly_chart(fig)
 
-# @st.cache
+@st.cache
 def balance_acf(data):
     # df = data.copy()
     # df['integration'] = data['balance'].diff(12)
@@ -75,7 +75,7 @@ def balance_acf(data):
     # plt.show()
     # pass
 
-# @st.cache 
+@st.cache 
 def balance_pacf(data):
     # st.subheader('Partial Correlation')
     # fig = sm.graphics.tsa.plot_pacf(data.balance, lags=100)
@@ -101,7 +101,7 @@ def balance_pacf(data):
 
     
     
-# @st.cache
+@st.cache
 def plot_MA_table(data):
     MA_example = pd.DataFrame(columns = ["Original_Balance","Predicted_Balance","Correction"])
     MA_example['Original_Balance'] = [1000,2000]
@@ -117,7 +117,8 @@ def plot_MA_table(data):
     st.write(fig)
     
     st.write("Our MA model will be something like **prediction = current_prediction + c1(10) + c2(-5)**")
-    
+
+@st.cache
 def differnce_acf(data):
     df = data.copy()    
     df['integration'] = data['balance'].diff(1)
@@ -218,6 +219,8 @@ def predict_data(data,model_fit):
     
     st.write("**Prediction Summary**")
     st.write(df.describe())
+    
+@st.cache    
 def intergration(data):
     # df = data.copy()
     # df['integration'] = data['balance'].diff(12).diff(12)
