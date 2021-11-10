@@ -327,6 +327,10 @@ def main():
     predict_data(data,model)
     
     st.subheader("Summary")
+    st.markdown("- The customer data shows a clear trend, correlation with the past data and monthly seasonal pattern \
+                \n- Based the characteristics of the data Seasonal Arima model can explain the data best because of it's components of AR + MA + Differece and Seasonality.")
+    
+    
 
 if __name__ == '__main__':
     main()
