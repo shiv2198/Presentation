@@ -306,7 +306,7 @@ def main():
     st.markdown("- In a simple terms, when a model takes past errors into the account and use those values in the prediction of current value. It is a moving average model.")
     plot_MA_table(data)
     
-    st.write("To understand the order of MA, we will check the ACF of the differneced data taken with every 12th value.")
+    st.write("To understand the order of MA, we will check the ACF of the differneced data taken with the previous value.")
     differnce_acf(data)
     st.write("**Till what data should we use the MA relation for our model?**")
     st.markdown("- ACF graph of the data with differncing with the past value can shows significance of the number of past data. \
