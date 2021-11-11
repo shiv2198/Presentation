@@ -188,8 +188,8 @@ def model_quality(data,model_fit):
                             ))
     st.plotly_chart(fig)
     # summary stats of residuals
-    st.write("**Summarizing The Model Residuals**")
-    st.write(residuals.describe())
+#     st.write("**Summarizing The Model Residuals**")
+#     st.write(residuals.describe())
     
 def predict_data(data,model_fit):
     test_data = data.balance[(data.index >= "2021-01-01")][:30]
