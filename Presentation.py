@@ -54,7 +54,7 @@ def plot_moving_average(data):
 def balance_acf(data):
     # df = data.copy()
     # df['integration'] = data['balance'].diff(12)
-    acf = pd.DataFrame(sm.tsa.stattools.acf(data.balance[12:],nlags = 100), columns = ['acf'])
+    acf = pd.DataFrame(sm.tsa.stattools.acf(data.balance,nlags = 100), columns = ['acf'])
     # st.subheader('Correlation')
     # fig = sm.graphics.tsa.plot_acf(data.balance, lags=30)
     
@@ -161,7 +161,7 @@ def train_model(data):
     
 
     from statsmodels.tsa.statespace.sarimax import SARIMAX
-    model = SARIMAX(train_data, order=(1,1,0), seasonal_order = (0,1,2,12))
+    model = SARIMAX(train_data, order=(1,1,0), seasonal_order = (0,1,2,30))
     # model = ARIMA(train_data, order=(4,2,2))
     model_fit = model.fit()
     
