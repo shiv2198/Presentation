@@ -116,7 +116,7 @@ def plot_MA_table(data):
     fig.update_layout(margin = dict(l = 5, r = 5, b = 1, t = 1), height = 80)
     st.write(fig)
     
-    st.write("Our MA model will be something like **prediction = current_prediction + c1(10) + c2(-5)**")
+    st.write("Our MA model will be something like **prediction = average of the data(1500) + c1(10) + c2(-5)**")
 
 # @st.cache
 def differnce_acf(data):
